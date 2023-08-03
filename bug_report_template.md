@@ -9,10 +9,3 @@
 ## Actual behavior
 
 ## Additional information
-```
-
-## Usage
-
-```bash
-
-
