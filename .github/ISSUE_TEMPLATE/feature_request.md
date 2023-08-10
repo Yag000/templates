@@ -1,7 +1,7 @@
 ---
 name: Feature Request
 about: Suggest a new feature.
-labels: "Feature Request"
+labels: "feature request"
 ---
 
 <!-- Use this template to request new features. --
