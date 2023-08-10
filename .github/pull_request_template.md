@@ -1,5 +1,8 @@
 # Pull Request
 
+<!-- Provide a general summary of your changes in the Title above -->
+<!-- Optional fileds can be removed if not applicable -->
+
 ## Description
 
 <!-- Briefly describe the purpose of this pull request. -->
@@ -14,7 +17,7 @@
 
 ## Screenshots <!-- Optional -->
 
-Optional: Attach relevant screenshots or GIFs if applicable
+<!-- Attach relevant screenshots or GIFs if applicable -->
 
 ## Checklist
 
