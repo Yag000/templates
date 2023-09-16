@@ -15,4 +15,3 @@ jobs:
 
       - name: Run cargo publish
         run: echo "yes"
-        run: cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
