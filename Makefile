@@ -1,35 +1,10 @@
-CC=gcc
-CFLAGS=-Wall -Wextra
-EXEC=main
+TEMPLATE_FOLDERS := $(shell find . -mindepth 1 -type d \( -name '.*' -prune -o -print \) )
+TEMPLATE_FILES := commitlint.config.js
 
-SRCDIR=src
-OBJDIR=obj
+TEMPLATE_DESTINATION := $(HOME)/Templates
 
-SRCFILES := $(shell find $(SRCDIR) -type f -name "*.c")
-ALLFILES := $(SRCFILES) $(shell find $(SRCDIR) -type f -name "*.h")
-OBJFILES := $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCFILES))
+all: 
+	mkdir -p $(TEMPLATE_DESTINATION)
+	cp -r $(TEMPLATE_FILES) $(TEMPLATE_DESTINATION)
+	cp -r $(TEMPLATE_FOLDERS) $(TEMPLATE_DESTINATION)
 
-# Create obj directory at the beginning
-$(shell mkdir -p $(OBJDIR))
-
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-
-.PHONY: all, clean, format, test
-
-all: $(EXEC)
-
-test: 
-
-main: $(OBJFILES) 
-	$(CC) -o $@ $^ $(CFLAGS)
-
-format:
-	clang-format -i $(ALLFILES)
-
-check-format:
-	clang-format --dry-run --Werror $(ALLFILES)
-
-clean:
-	rm -rf $(OBJDIR) $(EXEC)
