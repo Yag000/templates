@@ -17,15 +17,19 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 
-.PHONY: all, clean 
+.PHONY: all
 
 all: $(EXEC)
 
 main: $(OBJFILES) 
 	$(CC) -o $@ $^ $(CFLAGS)
 	
+.PHONY: format
+
 format:
 	clang-format -i $(SRCDIR)/*.c $(SRCDIR)/**/*.c
+
+.PHONY: clean
 
 clean:
 	rm -rf $(OBJDIR) $(EXEC) test
