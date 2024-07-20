@@ -18,7 +18,7 @@ init_ocaml_project(){
 }
 
 init_c_project(){
-    [ $# -eq 1 ] && mkdir "$1" && (cd "$1" || exit)
+    [ $# -eq 1 ] && mkdir "$1" && cd "$1" || exit
     cp -r "$HOME"/Templates/c/.* .
     cp -r "$HOME"/Templates/c/* .
     git init
@@ -26,7 +26,7 @@ init_c_project(){
 
 
 init_latex_project(){
-    [ $# -eq 1 ] && mkdir "$1" && (cd "$1" || exit)
+    [ $# -eq 1 ] && mkdir "$1" && cd "$1" || exit
     cp -r "$HOME"/Templates/latex/.* .
     cp -r "$HOME"/Templates/latex/* .
     mv Main.tex "$1.tex"
