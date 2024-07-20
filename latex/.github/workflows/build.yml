@@ -1,6 +1,6 @@
 name: Build LaTeX document
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build_latex:
@@ -11,9 +11,9 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: algebre-II-notes.tex
+          root_file: REPLACE_ME.tex
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: algebre-II-notes.pdf
+          path: REPLACE_ME.pdf
