@@ -31,7 +31,10 @@ init_latex_project(){
     cp -r "$HOME"/Templates/latex/* .
     mv Main.tex "$1.tex"
     sed -i "s/REPLACE_ME/$1/g" .github/workflows/*.yml
+    sed -i "s/PROJECT_NAME/$1/g" "$1.tex"
     git init
+    git submodule add https://github.com/Yag000/base-yago.git
+    echo "\usepackage{base-yago/base-yago}" >> "$1.sty"
 }
 
 
