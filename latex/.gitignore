@@ -301,3 +301,16 @@ TSWLatexianTemp*
 #*Notes.bib
 
 *.pdf
+
+# DOT language files 
+
+*.dot
+*.ps
+*.gvpr
+*.graphviz
+
+# knowledge package
+
+*.diagnose
+*.kaux
+
