@@ -14,7 +14,6 @@ init_ocaml_project(){
     cp -r "$HOME"/Templates/ocaml/.* .
     cp -r "$HOME"/Templates/ocaml/* .
     mv template.opam "$1.opam"
-    git init
 }
 
 init_c_project(){
@@ -35,6 +34,7 @@ init_latex_project(){
     git init
     git submodule add https://github.com/Yag000/base-yago.git
     echo "\usepackage{base-yago/base-yago}" >> "$1.sty"
+    touch "$1.bib"
 }
 
 
