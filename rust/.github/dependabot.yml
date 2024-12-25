@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # General updates (run monthly)
+  - package-ecosystem: "cargo" 
+    directory: "/" 
+    schedule:
+      interval: "monthly" 
+
+  # Security updates (run daily)
+  - package-ecosystem: "cargo" 
+    directory: "/" 
+    schedule:
+      interval: "daily"
+    security-updates-only: true # Only include security updates
+    commit-message:
+      prefix: "security"
