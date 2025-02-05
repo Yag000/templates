@@ -1,0 +1,157 @@
+%% This is my base style for my latex documents.
+
+%% Color
+
+\usepackage{color}
+\usepackage{xcolor}
+
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,1,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{violet}{rgb}{0.4,0,0.8}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\darkgreen}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\violet}[1]{\textcolor{violet}{#1}}
+
+
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+%% Basic algebra
+
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zn}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rn}{\R^n}
+
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\K}{\mathbb{K}}
+
+\newcommand{\pgcd}[2]{\text{pgcd}(#1,#2)}
+
+\newcommand{\goatp}{\mathfrak{p}}
+\newcommand{\goatm}{\mathfrak{m}}
+
+\newcommand{\car}{\text{car}}
+
+\newcommand{\degExt}[2]{[ #1 : #2 ]}
+
+\newcommand{\id}{\text{id}}
+
+
+%% Polynomials
+
+\newcommand{\QX}{\mathbb{Q}[X]}
+\newcommand{\RX}{\mathbb{R}[X]}
+\newcommand{\CX}{\mathbb{C}[X]}
+
+\newcommand{\AX}{A[X]}
+
+\newcommand{\Pt}{\tilde{P}}
+\newcommand{\Qt}{\tilde{Q}}
+
+
+%% Vector spaces
+
+\newcommand{\sprod}[2]{\left\langle #1, #2 \right\rangle}
+
+\newcommand{\LE}{\mathcal{L}(E)}
+
+\newcommand{\spec}{\text{Spec}}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\abs{\abs{#1}}}
+\newcommand{\normop}[1]{\abs{\abs{\abs{#1}}}}
+
+\newcommand{\dist}[2]{\text{ d}\left(#1, #2\right)}
+\newcommand{\vect}[1]{\text{Vect}\left( #1 \right)}
+
+\newcommand{\Mn}[2]{\mathcal{M}_{#1}(#2)}
+
+%% Probability notation
+
+\newcommand{\Pro}{\mathscr{P}}
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\1}{\mathds{1}}
+
+
+%% Functions
+
+\newcommand{\restr}[2]{#1_{\restriction #2}}
+\newcommand{\im}[1]{\text{Im}\left(#1\right)}
+
+%% Logic
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setdef}[2]{\set{#1 \mid #2}}
+\newcommand{\parts}[1]{\mathcal{P}\left(#1\right)}
+
+
+\newcommand{\contradict}{\lightning}
+
+%% Abbreviations
+
+\newcommand{\ie}{\textit{i.e.} }
+\newcommand{\eg}{\textit{e.g.} }
+
+
+%% Environments
+
+
+%% Title
+
+\usepackage{ifthen}
+
+\newcommand{\titlepageY}[3]{%
+	\fancypagestyle{toc}{%
+		\fancyhf{}%
+		\fancyhead[L]{\rightmark}%
+		\fancyhead[R]{\thepage}%
+	}
+
+	\pagestyle{toc}
+
+	\begin{titlepage}
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+		\center
+
+		\HRule\\[0.4cm]
+
+		\textsc{\Large #1}\\[0.5cm]
+		\ifthenelse{ \equal{#3}{} }
+		{ }
+		{\textsc{\large #3}\\[0.5cm] }
+
+		\HRule\\[1.5cm]
+
+
+		{\large\textit{Auteur}}\\
+		#2
+
+
+		\vfill\vfill\vfill
+
+		{\large\today}
+
+		\vfill
+
+	\end{titlepage}
+}
+
+
+
