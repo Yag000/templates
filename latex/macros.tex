@@ -25,7 +25,13 @@
 	urlcolor={blue!80!black}
 }
 
-%% Basic algebra
+
+%% Math
+
+\newcommand{\reason}[1]{\quad\left(\textit{#1}\right)}
+
+
+%%% Sets
 
 \newcommand{\N}{\mathbb{N}}
 
@@ -41,19 +47,30 @@
 
 \newcommand{\K}{\mathbb{K}}
 
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setdef}[2]{\set{#1 \mid #2}}
+\newcommand{\parts}[1]{\mathcal{P}\left(#1\right)}
+\newcommand{\enum}[2]{\set{#1,\ldots,#2}}
+
+
+%%% Logic
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\contradict}{\lightning}
+
+
+%%% Functions
+
+\newcommand{\restr}[2]{#1_{\restriction #2}}
+\newcommand{\im}[1]{\text{Im}\left(#1\right)}
+
 \newcommand{\pgcd}[2]{\text{pgcd}(#1,#2)}
-
-\newcommand{\goatp}{\mathfrak{p}}
-\newcommand{\goatm}{\mathfrak{m}}
-
 \newcommand{\car}{\text{car}}
-
-\newcommand{\degExt}[2]{[ #1 : #2 ]}
-
 \newcommand{\id}{\text{id}}
 
 
-%% Polynomials
+%%% Polynomials
 
 \newcommand{\QX}{\mathbb{Q}[X]}
 \newcommand{\RX}{\mathbb{R}[X]}
@@ -61,15 +78,9 @@
 
 \newcommand{\AX}{A[X]}
 
-\newcommand{\Pt}{\tilde{P}}
-\newcommand{\Qt}{\tilde{Q}}
-
-
-%% Vector spaces
+%%% Vector spaces
 
 \newcommand{\sprod}[2]{\left\langle #1, #2 \right\rangle}
-
-\newcommand{\LE}{\mathcal{L}(E)}
 
 \newcommand{\spec}{\text{Spec}}
 
@@ -82,27 +93,12 @@
 
 \newcommand{\Mn}[2]{\mathcal{M}_{#1}(#2)}
 
-%% Probability notation
+%%% Probability notation
 
 \newcommand{\Pro}{\mathscr{P}}
 \newcommand{\E}{\mathbb{E}}
 
 \newcommand{\1}{\mathds{1}}
-
-
-%% Functions
-
-\newcommand{\restr}[2]{#1_{\restriction #2}}
-\newcommand{\im}[1]{\text{Im}\left(#1\right)}
-
-%% Logic
-
-\newcommand{\set}[1]{\left\{#1\right\}}
-\newcommand{\setdef}[2]{\set{#1 \mid #2}}
-\newcommand{\parts}[1]{\mathcal{P}\left(#1\right)}
-
-
-\newcommand{\contradict}{\lightning}
 
 %% Abbreviations
 
@@ -110,8 +106,35 @@
 \newcommand{\eg}{\textit{e.g.} }
 
 
+%% Semantics
+
+\newcommand{\syntaxHeader}[3]{#1 &::=& #2 &\quad\text{#3}\\}
+\newcommand{\syntaxExtension}[1]{\syntaxHeader{#1}{\cdots}{}}
+\newcommand{\syntax}[2]{&|&#1&\quad\text{#2}\\}
+
+\newenvironment{syntaxdef} {\begin{mathpar} \begin{array}{lcll}} {\end{array} \end{mathpar}}
+
+
+%% Misc commands
+
+\newcommand{\quotes}[1] {"#1"}
+
 %% Environments
 
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{coro}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{example}{Example}[subsection]
+\newtheorem{exercice}{Exercice}[subsection]
+
+\theoremstyle{plain}
+\newtheorem{remark}{Remark}[subsection]
 
 %% Title
 
@@ -153,5 +176,33 @@
 	\end{titlepage}
 }
 
+%% French
 
+\iffalse
+\newcommand{\ssi}{si et seulement si }
+\newcommand{\mssi}{\text{ si et seulement si }}
+\newcommand{\tlq}{telle que }
+\newcommand{\tq}{tel que }
+\newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
+\newcommand{\cad}{c'est-à-dire }
+\newcommand{\mq}{montrer que }
+\newcommand{\mqs}{montrons que }
 
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{coro}[theorem]{Corollaire}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{prop}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exemple}{Exemple}[subsection]
+\newtheorem{exercice}{Exercice}[subsection]
+
+\theoremstyle{plain}
+\newtheorem{remarque}{Remarque}[subsection]
+\newtheorem{rappel}{Rappel}[subsection]
+
+\fi
