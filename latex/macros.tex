@@ -28,6 +28,17 @@
 
 %% Math
 
+%%% Proofs
+
+\newcommand{\bimpRL}{\fbox{$\Leftarrow$}}
+\newcommand{\bimpLR}{\fbox{$\Rightarrow$}}
+
+\newenvironment{proofI}[1][\proofname]{%
+	\begin{proof}[#1]$ $\par\nobreak\ignorespaces
+		}{%
+	\end{proof}
+}
+
 \newcommand{\reason}[1]{\quad\left(\textit{#1}\right)}
 
 
@@ -118,6 +129,7 @@
 %% Misc commands
 
 \newcommand{\quotes}[1] {"#1"}
+\newcommand{\todo}[1]{\red{TODO: #1}}
 
 %% Environments
 
@@ -206,3 +218,6 @@
 \newtheorem{rappel}{Rappel}[subsection]
 
 \fi
+
+%% Project specific
+
