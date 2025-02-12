@@ -30,6 +30,7 @@ init_latex_project(){
     cp -r "$HOME"/Templates/latex/* .
     sed -i "s/REPLACE_ME/$1/g" .github/workflows/*.yml
     sed -i "s/PROJECT_NAME/$1/g" "main.tex"
+    sed -i "s/PROJECT_NAME/$1/g" "README.md"
     git init
     touch "$1.bib"
 }
