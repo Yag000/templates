@@ -15,7 +15,7 @@ jobs:
 
       - uses: xu-cheng/latex-action@v3
         with:
-          root_file: REPLACE_ME.tex
+          root_file: main.tex
 
       # From here it is copied from : https://github.com/jonhue/pubtex-action
       # with a few modifications
