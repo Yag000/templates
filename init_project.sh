@@ -28,9 +28,8 @@ init_latex_project(){
     [ $# -eq 1 ] && mkdir "$1" && cd "$1" || exit
     cp -r "$HOME"/Templates/latex/.* .
     cp -r "$HOME"/Templates/latex/* .
-    mv Main.tex "$1.tex"
     sed -i "s/REPLACE_ME/$1/g" .github/workflows/*.yml
-    sed -i "s/PROJECT_NAME/$1/g" "$1.tex"
+    sed -i "s/PROJECT_NAME/$1/g" "main.tex"
     git init
     touch "$1.bib"
 }
