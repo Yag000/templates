@@ -129,7 +129,7 @@
 %% Misc commands
 
 \newcommand{\quotes}[1] {"#1"}
-\newcommand{\todo}[1]{\red{TODO: #1}}
+\newcommand{\todo}[1]{\red{TODO\ifx#1~ \else: #1\fi}}
 
 %% Environments
 
