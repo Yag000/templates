@@ -35,11 +35,22 @@ init_latex_project(){
     touch "$1.bib"
 }
 
+init_coq_project(){
+    [ $# -eq 1 ] && mkdir "$1" && cd "$1" || exit
+    cp -r "$HOME"/Templates/coq/.* .
+    cp -r "$HOME"/Templates/coq/* .
+    git init
+    sed -i "s/PROJECT_NAME/$1/g" "dune-project"
+    dune build "$1.opam"
+    coq_makefile src > Makefile
+}
+
 
 case $1 in
     rust) init_rust_project "$2" ;;
     ocaml) init_ocaml_project "$2" ;;
     c) init_c_project "$2" ;;
     latex) init_latex_project "$2" ;;
-    *) echo "Usage: $0 {rust|ocaml|c|latex} [project_name]" ;;
+    coq) init_coq_project "$2" ;;
+    *) echo "Usage: $0 {rust|ocaml|c|coq|latex} [project_name]" ;;
 esac
