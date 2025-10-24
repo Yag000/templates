@@ -33,16 +33,17 @@ init_latex_project(){
     sed -i "s/PROJECT_NAME/$1/g" "README.md"
     git init
     touch "$1.bib"
+    touch "$1.kl"
 }
 
-init_coq_project(){
+init_rocq_project(){
     [ $# -eq 1 ] && mkdir "$1" && cd "$1" || exit
-    cp -r "$HOME"/Templates/coq/.* .
-    cp -r "$HOME"/Templates/coq/* .
+    cp -r "$HOME"/Templates/rocq/.* .
+    cp -r "$HOME"/Templates/rocq/* .
     git init
     sed -i "s/PROJECT_NAME/$1/g" "dune-project"
+    sed -i "s/PROJECT_NAME/$1/g" "_RocqProject"
     dune build "$1.opam"
-    coq_makefile src > Makefile
 }
 
 
@@ -51,6 +52,6 @@ case $1 in
     ocaml) init_ocaml_project "$2" ;;
     c) init_c_project "$2" ;;
     latex) init_latex_project "$2" ;;
-    coq) init_coq_project "$2" ;;
-    *) echo "Usage: $0 {rust|ocaml|c|coq|latex} [project_name]" ;;
+    rocq) init_rocq_project "$2" ;;
+    *) echo "Usage: $0 {rust|ocaml|c|rocq|latex} [project_name]" ;;
 esac
