@@ -47,3 +47,5 @@ time-of-build-pretty.log
 
 _build/
 _opam/
+
+*.crashrocqide
