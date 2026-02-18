@@ -1,24 +1,28 @@
-name: OCaml
+
+name: OCaml build, test and check formatting
 
 on:
-  pull_request:
   push:
+  pull_request:
 
 jobs:
   test:
-    name: Test
+    name: Launch tests
     runs-on: ubuntu-latest
-
+    
     # Avoid running twice the action if it's triggered by a push on a PR from a branch on the repo.
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
-    steps:
-      - name: Checkout tree
-        uses: actions/checkout@v4
+    if: github.event_name != 'pull_request' 
+        || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
 
-      - name: Install OCaml 5.1
-        uses: ocaml/setup-ocaml@v2
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup OCaml
+        uses: ocaml/setup-ocaml@v3
         with:
-          ocaml-compiler: 5.1
+          ocaml-compiler: 5
+          dune-cache: true
+          allow-prerelease-opam: true
 
       - name: Install dependencies
         run: opam install . --deps-only
@@ -30,19 +34,22 @@ jobs:
         run: opam exec -- dune runtest
 
   format:
-    name: Format
+    name: Test Formatting
     runs-on: ubuntu-latest
 
     # Avoid running twice the action if it's triggered by a push on a PR from a branch on the repo.
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
-    steps:
-      - name: Checkout tree
-        uses: actions/checkout@v4
+    if: github.event_name != 'pull_request' 
+       || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
 
-      - name: Install OCaml 5.1
-        uses: ocaml/setup-ocaml@v2
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup OCaml
+        uses: ocaml/setup-ocaml@v3
         with:
-          ocaml-compiler: 5.1
+          ocaml-compiler: 5
+          dune-cache: true
+          allow-prerelease-opam: true
 
       - name: Install dependencies
         run: opam install . --deps-only
