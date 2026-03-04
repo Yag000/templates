@@ -1,6 +1,13 @@
 name: Build LaTeX document
 
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+      - '**.tex'
+
+  pull_request:
+    paths:
+      - '**.tex'
 
 jobs:
   build_latex:

@@ -2,6 +2,8 @@ name: Build project
 
 on:
   push:
+    paths:
+      - '**.v'
 
 jobs:
   build:
